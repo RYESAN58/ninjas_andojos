@@ -30,6 +30,25 @@
             </div>
         </div>
     </nav>
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/76612106-8aba-4097-9619-baee44cc3b5f/d9udfcy-d80060c4-6cdc-48ba-8842-9b804629ece8.png/v1/fill/w_1920,h_951,q_80,strp/boruto__naruto_the_movie_hidden_leaf_village_by_iennidesign_d9udfcy-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTUxIiwicGF0aCI6IlwvZlwvNzY2MTIxMDYtOGFiYS00MDk3LTk2MTktYmFlZTQ0Y2MzYjVmXC9kOXVkZmN5LWQ4MDA2MGM0LTZjZGMtNDhiYS04ODQyLTliODA0NjI5ZWNlOC5wbmciLCJ3aWR0aCI6Ijw9MTkyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.gWWdI0HDsDFMI3GZ5-P1ueLRNEDGTNSdXO3x_-Eswew" alt="Picture of ninjas ready for battle!">
+    <h2>{{x}} Ninjas!</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th>Dojo_id</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in all_nijas%}
+                <tr>
+                    <th scope="row">{{i.id}}</th>
+                    <td>{{i.firstname}}</td>
+                    <td>{{i.lastname}}</td>
+                    <td>{{i.dojo_id}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
 </body>
-</html>

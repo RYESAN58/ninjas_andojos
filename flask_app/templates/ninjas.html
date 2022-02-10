@@ -30,6 +30,28 @@
             </div>
         </div>
     </nav>
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/76612106-8aba-4097-9619-baee44cc3b5f/d9udfcy-d80060c4-6cdc-48ba-8842-9b804629ece8.png/v1/fill/w_1920,h_951,q_80,strp/boruto__naruto_the_movie_hidden_leaf_village_by_iennidesign_d9udfcy-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTUxIiwicGF0aCI6IlwvZlwvNzY2MTIxMDYtOGFiYS00MDk3LTk2MTktYmFlZTQ0Y2MzYjVmXC9kOXVkZmN5LWQ4MDA2MGM0LTZjZGMtNDhiYS04ODQyLTliODA0NjI5ZWNlOC5wbmciLCJ3aWR0aCI6Ijw9MTkyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.gWWdI0HDsDFMI3GZ5-P1ueLRNEDGTNSdXO3x_-Eswew" alt="Picture of ninjas ready for battle!">
+    <form action="/add_ninja" method="POST">
+        <div>
+            <h2>New Ninja</h2>
+            <select class="form-select" aria-label="Default select example" name="dojo_id">
+                <option selected>Dojos</option>
+                {%for i in all_dojos:%}
+                    <option name = 'dojo_id' value="{{i.id}}">{{i.name}}</option>
+                {%endfor%}
+            </select>
+            <div>
+                <label for="fname" class="col-sm-2 col-form-label">First_Name</label>
+                <div class="col-sm-10">
+                    <input type="name" class="form-control-plaintext" name="fname">
+                </div>
+            </div>
+            <div>
+                <label for="lname" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="name" class="form-control" name="lname">
+                </div>
+            </div>
+        </div>
+        <button type="submmit" class="btn-primary btn">Add</button>
+    </form>
 </body>
-</html>
