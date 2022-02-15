@@ -1,3 +1,4 @@
+from flask import flash
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models import ninja
 class Dojo:
@@ -16,10 +17,8 @@ class Dojo:
     def get_dojos_with_ninjas( cls , data ):
         query = "SELECT * FROM dojos LEFT JOIN ninjas ON ninjas.dojo_id = dojos.id WHERE dojos.id = %(id)s;"
         results = connectToMySQL('dojos_ninjas').query_db( query , data )
-        # results will be a list of topping objects with the burger attached to each row. 
         dojo = cls( results[0] )
         for row_from_db in results:
-            # Now we parse the burger data to make instances of burgers and add them into our list.
             ninja_data = {
                 "id" : row_from_db["ninjas.id"],
                 "name" : row_from_db["ninjas.firstname"],
@@ -37,3 +36,13 @@ class Dojo:
         for i in results:
             x.append( cls(i) )
         return x
+    @staticmethod
+    def validate_ninja(ninjas):
+        is_valid = True
+        if len(ninjas['fname'])< 3:
+            flash('First Name must be at least 3 characters')
+            is_valid = False
+        if len(ninjas['lname'])< 3:
+            flash('Last Name must be at least three characters')
+            is_valid = False
+        return is_valid

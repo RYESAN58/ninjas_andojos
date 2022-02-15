@@ -33,6 +33,15 @@
     <form action="/add_ninja" method="POST">
         <div>
             <h2>New Ninja</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p style="color: red;">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+
             <select class="form-select" aria-label="Default select example" name="dojo_id">
                 <option selected>Dojos</option>
                 {%for i in all_dojos:%}

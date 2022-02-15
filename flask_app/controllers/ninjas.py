@@ -31,10 +31,12 @@ def ninja():
     return render_template("ninjas.html",all_ninjas = friends, all_dojos = places)
 @app.route('/add_ninja', methods=['POST'])
 def set_ninja():
+    if not Dojo.validate_ninja(request.form):
+        return redirect('/ninja')
     data = {
         'dojo_id':request.form['dojo_id'],
         'fname':request.form['fname'],
         'lname':request.form['lname'],
     }
     friends = Ninja.add_to_dojo(data)
-    return redirect('/')
+    return redirect('/ninja')
